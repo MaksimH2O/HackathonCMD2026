@@ -1,17 +1,19 @@
 # Hackathon CMD 2026
 
-An interactive space-themed web experience inspired by the [Nebula Xplorer / SRON](https://www.sron.nl/en/) context.
+An interactive, space-themed information experience created for the HvA CMD Hackathon 2026.  
+The content is based on information from [Nebula Xplorer / SRON](https://www.sron.nl/en/).
 
 This project is built with **SvelteKit** and features:
+
 - an animated overview page with orbiting research-question cards,
 - dynamic detail pages generated from local JSON content,
-- a black hole transition to a small easter egg scene.
+- a black hole interaction that leads to an easter egg scene.
 
 ## Features
 
 - **Animated overview (`/`)**
   - Orbiting cards and satellites around a central black hole.
-  - Physics-style motion (orbiting, falling, respawn behavior).
+  - Physics-inspired motion (orbiting, falling, respawn behavior).
   - Card links route to detail pages.
 - **Detail pages (`/onderzoeksvragen/[slug]`)**
   - Dynamic route loading based on card title slugs.
@@ -62,6 +64,18 @@ Then open the local URL shown in your terminal.
 - `npm run dev` - start local dev server
 - `npm run build` - create production build
 - `npm run preview` - preview production build locally
+
+## Deployment (Cloudflare)
+
+This project is hosted on **Cloudflare**.
+
+- If Cloudflare Pages is connected to your Git branch, deploy by pushing to the configured branch.
+- To verify the production build locally before deploying:
+
+```bash
+npm run build
+npm run preview
+```
 
 ## Notes
 
