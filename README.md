@@ -1,24 +1,69 @@
-# Hackathon
-Deze week gaan we aan de slag met een segment van de webpagina [Nebula Explorer](https://www.sron.nl/en/). Hierbij gaan we in een week tijd aan de slag met een pagina.
+# Hackathon CMD 2026
 
-## Idee
+An interactive space-themed web experience inspired by the [Nebula Xplorer / SRON](https://www.sron.nl/en/) context.
 
-Het idee is dat we de overzichtspagina maken voor de onderzoeksvragen en de detailpagina. Aangezien we op de website hebben gelezen over het zwarte gat willen we hier een ontwerp van maken. 
+This project is built with **SvelteKit** and features:
+- an animated overview page with orbiting research-question cards,
+- dynamic detail pages generated from local JSON content,
+- a black hole transition to a small easter egg scene.
 
-We gebruiken voor deze opdracht vanilla HTML, CSS en Javascript en het wordt uitgewerkt op Google Chrome. Het idee om een single page transition te doen.
+## Features
 
-**Overzichtspagina**
-Hier zie je alle onderzoeksvragen die zijn uitgezocht door Nebula Explorer.
+- **Animated overview (`/`)**
+  - Orbiting cards and satellites around a central black hole.
+  - Physics-style motion (orbiting, falling, respawn behavior).
+  - Card links route to detail pages.
+- **Detail pages (`/onderzoeksvragen/[slug]`)**
+  - Dynamic route loading based on card title slugs.
+  - Content, optional list items, and image metadata from `static/cards.json`.
+- **Easter egg (`/easteregg`)**
+  - Animated alien sequence using GSAP + MorphSVGPlugin.
+- **View transitions**
+  - Navigation transitions are enabled via `document.startViewTransition` when available.
 
-**Detailpagina**
-Dit is de pagina waarop je de blog leest.
+## Tech Stack
 
-**Easter Egg**
-Wanneer je op het zwarte gat klikt gebeurt er iets verrassends.
+- **SvelteKit** (Svelte 5)
+- **Vite**
+- **GSAP** (including MorphSVG plugin usage in the alien animation)
+- Plain CSS (component-level and shared styles)
 
+## Project Structure
 
+- `src/routes/+page.svelte` - overview page
+- `src/routes/+page.ts` - loads card data
+- `src/routes/onderzoeksvragen/[slug]/+page.svelte` - detail page UI
+- `src/routes/onderzoeksvragen/[slug]/+page.ts` - slug matching and detail data loading
+- `src/routes/easteregg/+page.svelte` - easter egg page
+- `src/lib/components/BlackHoleInfoPage.svelte` - main black-hole/canvas/card interaction
+- `src/lib/components/aliencomponent.svelte` - alien animation sequence
+- `src/lib/components/viewtransition.svelte` - view transition hook
+- `static/cards.json` - research card content
+- `static/sattelites.json` - orbiting satellite/emoji config
 
-### Taakverdeling
-Maksim: Overzichtspagina
-Joost: Detailpagina
-Miel: Easter Egg + Page Transitions
+## Getting Started
+
+### 1) Install dependencies
+
+```bash
+npm install
+```
+
+### 2) Start development server
+
+```bash
+npm run dev
+```
+
+Then open the local URL shown in your terminal.
+
+## Available Scripts
+
+- `npm run dev` - start local dev server
+- `npm run build` - create production build
+- `npm run preview` - preview production build locally
+
+## Notes
+
+- Card slugs are generated from titles (lowercase + hyphenated).
+- The project currently uses the filename `sattelites.json` (as referenced in code).
