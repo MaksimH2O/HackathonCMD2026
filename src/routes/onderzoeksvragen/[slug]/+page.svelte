@@ -18,7 +18,7 @@
 </script>
 
 <svelte:head>
-  <title>{data.title} | Onderzoeksvragen</title>
+  <title>{data.title} | Hackathon CMD 2026</title>
 </svelte:head>
 
 <Viewtransition />

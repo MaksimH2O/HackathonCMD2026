@@ -2,13 +2,13 @@
   import BlackHoleInfoPage from "$lib/components/BlackHoleInfoPage.svelte";
   import Viewtransition from "$lib/components/viewtransition.svelte";
   import "$lib/styles/home.css";
-  import "$lib/styles/style.css"
+  import "$lib/styles/style.css";
 
   let { data } = $props();
 </script>
 
 <svelte:head>
-  <title>Onderzoeksvragen</title>
+  <title>Hackathon CMD 2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
   <link
@@ -18,21 +18,19 @@
 </svelte:head>
 
 <div id="giant-hole-wrapper">
-<BlackHoleInfoPage cardConfigs={data.cards} expanded={false} />
+  <BlackHoleInfoPage cardConfigs={data.cards} expanded={false} />
 </div>
 
 <Viewtransition />
 
 <style>
-#giant-hole-wrapper {
-      position: fixed; 
-      top: 50%;
-      left: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 10; 
+  #giant-hole-wrapper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
   }
-
-
 </style>
